@@ -5,25 +5,30 @@ This template should help get you started developing with Vue 3 and TypeScript i
 Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
 
 ## How to Run
+
 1. Clone the repository:
    ```bash
    git clone <repo-url>
    cd <repo-folder>
+   ```
 2. npm install
 3. npm run dev
 
 ## Features
-* Article filtering by category.
-* Bookmarking functionality with state persistence.
-* Responsive.
+
+- Article filtering by category.
+- Bookmarking functionality with state persistence.
+- Responsive.
 
 ## Frameworks / libraries Used
-* Vite
-* Vue
-* Lit
-* Typescript
-* scss //Just for some color Variables
-* Bootstrap Icons 
+
+- Vite
+- Vue
+- Lit
+- Typescript
+- scss //Just for some color Variables
+- Bootstrap Icons
 
 ## Run Tests
-* npm test
+
+- npm test

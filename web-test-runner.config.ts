@@ -5,8 +5,8 @@ export default {
     playwrightLauncher({ product: 'chromium' }),
     // playwrightLauncher({ product: 'firefox' }),
   ],
-  testDir: './src/test', 
-  files: ['**/*.test.ts', '**/*.spec.ts'], 
+  testDir: './src/test',
+  files: ['**/*.test.ts', '**/*.spec.ts'],
   nodeResolve: true,
   plugins: [
     {

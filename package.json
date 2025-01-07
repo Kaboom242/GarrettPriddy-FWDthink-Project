@@ -8,7 +8,9 @@
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
     "type-check": "vue-tsc --noEmit",
-    "test": "web-test-runner"
+    "test": "web-test-runner",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "bootstrap-icons": "^1.11.3",
@@ -26,6 +28,7 @@
     "@web/test-runner-playwright": "^0.11.0",
     "chai": "^5.1.2",
     "lit": "^3.2.1",
+    "prettier": "^3.4.2",
     "sass-embedded": "^1.83.1",
     "typescript": "~5.6.2",
     "vite": "^6.0.5",

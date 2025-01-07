@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "title": "Ignition Podcast: Innovation, Agility, Talent, Workplace, Culture, and more",
+    "bookmarked": false,
+    "tags": ["Workplace", "Resources"],
+    "img": "/StockResourcePhotos/StockImg_01.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Threat Briefing",
+    "bookmarked": true,
+    "tags": ["Training", "Education"],
+    "img": "/StockResourcePhotos/StockImg_02.jpg"
+  },
+  {
+    "id": 3,
+    "title": "SSC Telework Portal",
+    "bookmarked": false,
+    "tags": ["Productivity", "Workplace"],
+    "img": "/StockResourcePhotos/StockImg_03.jpg"
+  },
+  {
+    "id": 4,
+    "title": "AIR FORCE Virtual Education",
+    "bookmarked": true,
+    "tags": ["Education"],
+    "img": "/StockResourcePhotos/StockImg_04.png"
+  },
+  {
+    "id": 5,
+    "title": "Guide to DigitalU",
+    "bookmarked": false,
+    "tags": ["Productivity"],
+    "img": "/StockResourcePhotos/StockImg_06.jpg"
+  },
+  {
+    "id": 6,
+    "title": "How Build a Collaborative Team Environment",
+    "bookmarked": true,
+    "tags": ["Training"],
+    "img": "/StockResourcePhotos/StockImg_05.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Resource 7",
+    "bookmarked": false,
+    "tags": ["Engineering"],
+    "img": "/StockResourcePhotos/StockImg_06.jpg"
+  }
+]

@@ -20,12 +20,14 @@ export class ResourceCard extends LitElement {
       justify-content: center;
       align-items: center;
     }
-    .card h3, .card p {
+    .card h3,
+    .card p {
       background: rgba(0, 0, 0, 0.5);
       padding: 0.5rem;
       border-radius: 4px;
     }
-    button { /*Bookmark Button*/
+    button {
+      /*Bookmark Button*/
       margin-top: 0.5rem;
       padding: 0.5rem 1rem;
       background-color: #2196f3;
@@ -40,7 +42,13 @@ export class ResourceCard extends LitElement {
     }
   `;
 
-  @property({ type: Object }) resource: { id: number; title: string; tags: string[]; img: string; bookmarked: boolean } = {
+  @property({ type: Object }) resource: {
+    id: number;
+    title: string;
+    tags: string[];
+    img: string;
+    bookmarked: boolean;
+  } = {
     id: 0,
     title: '',
     tags: [],
@@ -61,6 +69,7 @@ export class ResourceCard extends LitElement {
   }
 
   render() {
+    console.log(this.resource);
     return html`
       <div class="card" style="background-image: url(${this.resource.img});">
         <h3>${this.resource.title}</h3>
