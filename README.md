@@ -21,5 +21,6 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 * Vite
 * Vue
 * Lit
-* Bootstrap //maybe
 * Typescript
+* scss //Just for some color Variables
+* Bootstrap Icons 
