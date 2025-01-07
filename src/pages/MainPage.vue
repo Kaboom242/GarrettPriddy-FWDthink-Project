@@ -1,18 +1,27 @@
 <template>
   <div class="MainPage">
-    <!-- TitleBar Component -->
-    <title-bar />
+    <!-- TitleBar Section -->
+    <div class="TitleBar">
+      <div class="title">Your Resources</div>
+      <div class="tools">
+        <!-- Example: Replace with actual buttons or functionality -->
+        <i class="bi bi-pencil"></i>
+        <i class="bi bi-plus-lg"></i>
+        <i class="bi bi-list-task"></i>
+        <i class="bi bi-sort-down-alt"></i>
+      </div>
+    </div>
 
     <!-- Filter Section -->
-    <div class="FilterSection">
-      <p>You may add more or edit your existing resources</p>
+    <div class="filter-chip-section">
+      <p>You may add more or edit your existing resources </p>
       <div class="chip-grid">
         <chip-button
           v-for="filter in filters"
           :key="filter"
-          :filter="filter"
-          :selectedFilter="selectedFilter"
-          @filter-changed="handleFilterChange"
+          :label="filter"
+          :active="filter === selectedFilter"
+           @chip-toggle="handleFilterChange"
         />
         </div>
     </div>
@@ -23,19 +32,16 @@
         v-for="resource in resources"
         :key="resource.id" />
     </div>
-
-    <!-- Show More Button -->
     <button @click="loadMore">Show More</button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import '@/components/TitleBar.ts';
 import '@/components/ChipButton.ts';
 import '@/components/ResourceCard.ts';
 
-// Resource data / Should be replaced with API call
+// Resource data | Should be replaced with Database call
 const resources = ref([
   { id: 1, title: 'Ignition Podcast: Innovation, Agility, Talent, Workplace, Culture, and more', bookmarked: false, tags: ['Workplace', 'Resources'] },
   { id: 2, title: 'Threat Briefing', bookmarked: true, tags: ['Training', 'Education'] },
@@ -74,8 +80,8 @@ function loadMore() {
   gap: 1rem;
   /* padding: 1rem; */
 }
-.FilterSection {
-  text-align: center;
+.filter-chip-section {
+  text-align: left;
 }
 
 button { /* Show More Button */
@@ -97,5 +103,41 @@ button:hover {
   grid-template-columns: repeat(3, minmax(auto, 1fr));
   gap: 1rem;
   max-width: 100%;
+}
+.chip-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+.TitleBar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* padding: 1rem; */
+}
+.tools {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+.tools i:hover {
+  position: relative;
+  top: -1px;
+}
+.bi {
+  color: var(--main-color, rgb(59, 59, 59));
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.title {
+  font-size: 2.4em;
+  line-height: 1.1;
+  font-weight: 600;
+  color: #0e4c87;
+  margin: 0;
+  text-align: left;
 }
 </style>

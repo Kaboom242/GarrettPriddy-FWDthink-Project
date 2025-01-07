@@ -24,3 +24,6 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 * Typescript
 * scss //Just for some color Variables
 * Bootstrap Icons 
+
+## Run Tests
+* npm test

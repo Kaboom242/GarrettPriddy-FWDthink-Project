@@ -7,7 +7,7 @@
     "jsx": "preserve",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "types": ["vite/client"],
+    "types": ["vite/client", "node", "mocha"],
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
   },
