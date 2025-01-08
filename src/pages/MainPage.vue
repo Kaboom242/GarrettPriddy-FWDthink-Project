@@ -28,7 +28,15 @@
 
     <!-- Resource Grid -->
     <div class="resource-grid" v-if="filteredResources.length > 0">
-      <resource-card v-for="resource in filteredResources" :key="resource.id" />
+      <resource-card
+        v-for="resource in filteredResources"
+        :key="resource.id"
+        :id="resource.id"
+        :title="resource.title"
+        :tags="resource.tags"
+        :img="resource.img"
+        :bookmarked="resource.bookmarked"
+      />
     </div>
     <button @click="loadMore">Show More</button>
   </div>
@@ -65,6 +73,7 @@ const filteredResources = computed(() =>
 function handleFilterChange(filter: string) {
   selectedFilter.value = filter;
   console.log('Filter Changed:', filter);
+  console.log('Filtered Resources:', filteredResources.value);
 }
 
 function loadMore() {
@@ -102,7 +111,7 @@ button:hover {
 .resource-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(auto, 1fr));
-  gap: 1rem;
+  gap: 2rem;
   max-width: 100%;
 }
 .chip-grid {

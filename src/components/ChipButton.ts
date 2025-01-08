@@ -8,7 +8,7 @@ export default class ChipButton extends LitElement {
     .chip {
       position: relative;
       display: inline-block;
-      padding: 0.2rem 1rem;
+      padding: 0.3rem 1.1rem;
       margin: 0.25rem;
       font-size: 1rem;
       font-weight: 600;
@@ -46,8 +46,8 @@ export default class ChipButton extends LitElement {
     }
   `;
   // Define properties
-  @property({ type: String }) label?: string = '';
-  @property({ type: Boolean }) active: boolean = false;
+  @property({ type: String }) label: string = '';
+  @property({ type: Boolean }) active?: boolean = false;
 
   // Boy, I sure do love the shadow DOM
   connectedCallback() {

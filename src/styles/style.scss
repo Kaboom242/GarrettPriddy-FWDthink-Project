@@ -1,6 +1,5 @@
 $primary-color: #0e4c87;
 $secondary-color: #f0f0f0;
-$main-color: rgb(59, 59, 59);
 
 :root {
   font-family: roboto, sans-serif; /* Should be Substance Bold */
@@ -8,7 +7,7 @@ $main-color: rgb(59, 59, 59);
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgb(59, 59, 59);
   background-color: #242424;
 
   font-synthesis: none;
@@ -40,7 +39,6 @@ p {
   font-size: 1em;
   line-height: 1.5;
   font-weight: 400;
-  color: $main-color;
 }
 
 button {
@@ -67,10 +65,10 @@ button:focus-visible {
 }
 
 #app {
-  max-width: 1280px;
+  // max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  // text-align: center;
 }
 
 @media (prefers-color-scheme: light) {
