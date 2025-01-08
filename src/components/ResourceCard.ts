@@ -13,13 +13,14 @@ export class ResourceCard extends LitElement {
   static styles = css`
     .card {
       position: relative;
-      height: 200px;
+      height: 215px;
       width: 425px;
       overflow: hidden;
       
-      padding: 1rem;
+      padding: 1.2rem;
       /* border: 1px solid #ccc; */
       border-radius: 12px;
+      box-sizing: border-box;
       
       text-align: left;
       
@@ -61,7 +62,7 @@ export class ResourceCard extends LitElement {
       width: 100%;
 
       display: grid;
-      grid-template-rows: 100px 1fr;
+      grid-template-rows: 2fr 1fr;
       align-items: start;
       gap: 0.5rem;
       color: lightgray;
@@ -124,7 +125,7 @@ export class ResourceCard extends LitElement {
     }
   `;
   
-
+  //import Bootcamp icons
   connectedCallback() {
     super.connectedCallback();
     const styleLink = document.createElement('link');

@@ -27,7 +27,7 @@
     </div>
 
     <!-- Resource Grid -->
-    <div class="resource-grid" v-if="filteredResources.length > 0">
+    <transition-group name="list" tag="div" class="resource-grid" v-if="filteredResources.length > 0">
       <resource-card
         v-for="resource in filteredResources"
         :key="resource.id"
@@ -37,8 +37,8 @@
         :img="resource.img"
         :bookmarked="resource.bookmarked"
       />
-    </div>
-    <button @click="loadMore">Show More</button>
+    </transition-group>
+    <div class="ShowMore" @click="loadMore"><i class="bi bi-arrow-down-circle"></i> Show More</div>
   </div>
 </template>
 
@@ -62,21 +62,32 @@ const filters = ref([
   'Workplace',
 ]);
 const selectedFilter = ref('All');
+const loadAmount = ref(6);
 
-const filteredResources = computed(() =>
-  selectedFilter.value === 'All'
-    ? resources.value
-    : resources.value.filter((r:any) => r.tags.includes(selectedFilter.value))
-);
+const filteredResources = computed(() => {
+  if (selectedFilter.value === 'All') {
+    if (resources.value.length > loadAmount.value) {
+      return resources.value.slice(0, loadAmount.value);
+    }
+    return resources.value;
+  } else {
+    const filtered = resources.value.filter((r: any) => r.tags.includes(selectedFilter.value));
+    if (filtered.length > loadAmount.value) {
+      return filtered.slice(0, loadAmount.value);
+    }
+    return filtered;
+  }
+});
 
 // Handle filter change Switch out to apply multiple filters to search.
-function handleFilterChange(filter: string) {
-  selectedFilter.value = filter;
-  console.log('Filter Changed:', filter);
-  console.log('Filtered Resources:', filteredResources.value);
+function handleFilterChange(event: CustomEvent) {
+  const { label, active } = event.detail;
+  
+  selectedFilter.value = label;
 }
 
 function loadMore() {
+  loadAmount.value += 6;
   console.log('Load more resources...');
   // Implement logic to fetch or add more resources
 }
@@ -93,19 +104,26 @@ function loadMore() {
   text-align: left;
 }
 
-button {
+.ShowMore {
   /* Show More Button */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   align-self: center;
+  font-weight: 700;
   padding: 0.5rem 1rem;
-  background-color: #2196f3;
-  color: white;
+  color: #0e4c87;
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
 }
-button:hover {
-  background-color: #1976d2;
+.ShowMore:hover {
+  position: relative;
+  top: 1px;
+}
+.bi-arrow-down-circle {
+  font-size: 1rem;
 }
 
 .resource-grid {
@@ -114,6 +132,19 @@ button:hover {
   gap: 2rem;
   max-width: 100%;
 }
+
+.list-enter-active, .list-leave-active {
+  transition: all 0.5s ease;
+}
+.list-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
 .chip-grid {
   display: flex;
   flex-direction: row;
@@ -132,16 +163,15 @@ button:hover {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
+  color: var(--main-color, rgb(59, 59, 59));
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 .tools i:hover {
   position: relative;
   top: -1px;
 }
-.bi {
-  color: var(--main-color, rgb(59, 59, 59));
-  font-size: 1.5rem;
-  cursor: pointer;
-}
+
 .title {
   font-size: 2.4em;
   line-height: 1.1;

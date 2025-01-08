@@ -47,5 +47,35 @@
     "bookmarked": false,
     "tags": ["Engineering"],
     "img": "/StockResourcePhotos/StockPhoto_06.jpg"
-  }
+  },
+    {
+        "id": 8,
+        "title": "Effective Communication Strategies",
+        "bookmarked": false,
+        "tags": ["Communication", "Training"],
+        "img": "/StockResourcePhotos/StockPhoto_07.jpg"
+    },
+    {
+        "id": 9,
+        "title": "Acquisition Best Practices",
+        "bookmarked": true,
+        "tags": ["Acquisition", "Resources"],
+        "img": "/StockResourcePhotos/StockPhoto_08.jpg"
+    },
+    {
+        "id": 10,
+        "title": "Communication in the Digital Age",
+        "bookmarked": false,
+        "tags": ["Communication", "Education"],
+        "img": "/StockResourcePhotos/StockPhoto_09.jpg"
+    },
+    {
+        "id": 11,
+        "title": "Acquisition Strategy Guide",
+        "bookmarked": true,
+        "tags": ["Acquisition", "Training"],
+        "img": "/StockResourcePhotos/StockPhoto_10.jpg"
+    }
+  
 ]
+
