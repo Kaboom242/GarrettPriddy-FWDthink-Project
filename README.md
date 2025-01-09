@@ -8,8 +8,8 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 
 1. Clone the repository:
    ```bash
-   git clone <repo-url>
-   cd <repo-folder>
+   git clone [<repo-url>](https://github.com/Kaboom242/GarrettPriddy-FWDthink-Project.git)
+   cd GarrettPriddy-FWDthink-Project
    ```
 2. npm install
 3. npm run dev
@@ -18,7 +18,7 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 
 - Article filtering by category.
 - Bookmarking functionality with state persistence.
-- Responsive.
+- Responsive design.
 
 ## Frameworks / libraries Used
 
@@ -26,7 +26,6 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 - Vue
 - Lit
 - Typescript
-- scss //Just for some color Variables
 - Bootstrap Icons
 
 ## Run Tests

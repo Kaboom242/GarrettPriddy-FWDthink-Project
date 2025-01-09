@@ -65,6 +65,10 @@ const selectedFilter = ref('All');
 const loadAmount = ref(6);
 
 const filteredResources = computed(() => {
+  if(selectedFilter.value == '')
+  {
+    selectedFilter.value = 'All';
+  }
   if (selectedFilter.value === 'All') {
     if (resources.value.length > loadAmount.value) {
       return resources.value.slice(0, loadAmount.value);
@@ -73,6 +77,7 @@ const filteredResources = computed(() => {
   } else {
     const filtered = resources.value.filter((r: any) => r.tags.includes(selectedFilter.value));
     if (filtered.length > loadAmount.value) {
+      //this is probably done in the Backend API
       return filtered.slice(0, loadAmount.value);
     }
     return filtered;
@@ -88,8 +93,7 @@ function handleFilterChange(event: CustomEvent) {
 
 function loadMore() {
   loadAmount.value += 6;
-  console.log('Load more resources...');
-  // Implement logic to fetch or add more resources
+  //Call getResources database Query Function.
 }
 </script>
 
@@ -128,18 +132,28 @@ function loadMore() {
 
 .resource-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(auto, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 20px;
   max-width: 100%;
 }
+
+@media (min-width: 1000px) { /*64*2 + 425x2 +20px */
+  .resource-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1400px) {
+  .resource-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 
 .list-enter-active, .list-leave-active {
   transition: all 0.5s ease;
 }
-.list-enter {
-  opacity: 0;
-  transform: translateY(-20px);
-}
+.list-enter-from, 
 .list-leave-to {
   opacity: 0;
   transform: translateY(20px);
@@ -148,7 +162,8 @@ function loadMore() {
 .chip-grid {
   display: flex;
   flex-direction: row;
-  gap: 0.8rem;
+  flex-wrap: wrap;
+  gap: 0rem 0.8rem;
   margin-top: 0.5rem;
 }
 .TitleBar {
@@ -164,7 +179,7 @@ function loadMore() {
   flex-direction: row;
   gap: 1.5rem;
   color: var(--main-color, rgb(59, 59, 59));
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
 }
 .tools i:hover {

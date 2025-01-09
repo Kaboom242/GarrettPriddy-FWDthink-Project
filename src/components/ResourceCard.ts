@@ -13,8 +13,8 @@ export class ResourceCard extends LitElement {
   static styles = css`
     .card {
       position: relative;
-      height: 215px;
-      width: 425px;
+      height: 175px;
+      width: 325px;
       overflow: hidden;
       
       padding: 1.2rem;
@@ -27,6 +27,12 @@ export class ResourceCard extends LitElement {
       color: white;
       cursor: pointer;
       transition: all 0.3s;
+    }
+    @media (min-width: 500px) {
+      .card {
+        height: 215px;
+        width: 425px;
+      }
     }
     .card:hover {
       box-shadow: 0px 0px 15px #0e4c87;
@@ -134,8 +140,10 @@ export class ResourceCard extends LitElement {
     this.shadowRoot?.appendChild(styleLink);
   }
 
-  toggleBookmark() {
+  toggleBookmark(event: Event) {
+    event.stopPropagation();
     this.bookmarked = !this.bookmarked;
+
     // Send to backend to save the bookmark state.
     this.dispatchEvent(
       new CustomEvent('bookmark-toggled', {
@@ -143,7 +151,8 @@ export class ResourceCard extends LitElement {
       })
     );
   }
-  openContextMenu() {
+  openContextMenu(event: Event) {
+    event.stopPropagation();
     // Open Context Menu
   }
   openResource() {
