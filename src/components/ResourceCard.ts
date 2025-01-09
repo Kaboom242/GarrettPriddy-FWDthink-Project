@@ -1,13 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 
-@customElement('resource-card')
 export class ResourceCard extends LitElement {
-  @property({ type: String }) id!: string;
-  @property({ type: String }) title!: string;
-  @property({ type: Array }) tags!: string[];
-  @property({ type: String }) img!: string;
-  @property({ type: Boolean }) bookmarked!: boolean;
+  
 
   // Styles
   static styles = css`
@@ -131,6 +126,26 @@ export class ResourceCard extends LitElement {
     }
   `;
   
+  static get properties() {
+    return {
+      id: { type: String },
+      title: { type: String },
+      tags: { type: Array },
+      img: { type: String },
+      bookmarked: { type: Boolean },
+    };
+  }
+
+  constructor() {
+    super();
+    this.id = '';
+    this.title = '';
+    this.tags = [];
+    this.img = '';
+    this.bookmarked = false;
+  }
+
+
   //import Bootcamp icons
   connectedCallback() {
     super.connectedCallback();
@@ -155,9 +170,19 @@ export class ResourceCard extends LitElement {
     event.stopPropagation();
     // Open Context Menu
   }
+
   openResource() {
-    // Open Resource
-  }
+  this.dispatchEvent(
+    new CustomEvent('open-resource', {
+      detail: { 
+        id: this.id, 
+        title: this.title, 
+        tags: this.tags, 
+        bookmarked: this.bookmarked 
+      }
+    })
+  );
+}
 
   render() {
     return html`
@@ -192,3 +217,4 @@ export class ResourceCard extends LitElement {
     `;
   }
 }
+customElements.define('resource-card', ResourceCard);
