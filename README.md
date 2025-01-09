@@ -19,6 +19,8 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 - Article filtering by category.
 - Bookmarking functionality with state persistence.
 - Responsive design.
+- Article Simple Transition Effect
+- Show more button, shows more articles.
 
 ## Frameworks / libraries Used
 
@@ -31,3 +33,13 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 ## Run Tests
 
 - npm test
+
+## Assumptions & Notes
+
+- I tried to mimic the font 'Substance Bold' best I could by using Roboto.
+- I used Bootstrap Icons as they seemed closest I could find to the icon library you are using. 
+- Assuming Resources are Loaded via api, I made a json file that was "retrieved" from Api.
+- Assumed the Category Tags were static and doesn't have dynamic user generated ones.
+- Show more button should ask backend API to load more instead of just displaying more from the resource array.
+- I considered making the bookmark and context menu on the Resource cards into lit components, but under this assignment they didn't need more done that a style class 
+- When bookmarks are clicked this should also be ready to call the backend API, I considered saving the state using Pinia, but this would only be beneficial for  
