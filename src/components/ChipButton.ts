@@ -1,7 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
 
-@customElement('chip-button')
 export default class ChipButton extends LitElement {
   // Define styles for the component
   static styles = css`
@@ -45,16 +43,27 @@ export default class ChipButton extends LitElement {
       opacity: 1;
     }
   `;
-  // Define properties
-  @property({ type: String }) label: string = '';
-  @property({ type: Boolean }) active?: boolean = false;
+
+  static get properties() {
+    return {
+      label: { type: String },
+      active: { type: Boolean },
+    };
+  }
+
+  constructor() {
+    super();
+    this.label = ''; 
+    this.active = false; 
+  }
 
   // Boy, I sure do love the shadow DOM
   connectedCallback() {
     super.connectedCallback();
     const styleLink = document.createElement('link');
     styleLink.rel = 'stylesheet';
-    styleLink.href = '/node_modules/bootstrap-icons/font/bootstrap-icons.css';
+    //styleLink.href = '/node_modules/bootstrap-icons/font/bootstrap-icons.css';
+    styleLink.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css'; //
     this.shadowRoot?.appendChild(styleLink);
   }
   // Toggle active state on click
@@ -74,3 +83,5 @@ export default class ChipButton extends LitElement {
     `;
   }
 }
+
+customElements.define('chip-button', ChipButton);

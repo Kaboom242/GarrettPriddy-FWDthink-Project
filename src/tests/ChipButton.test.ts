@@ -1,12 +1,9 @@
-//import { html, fixture, expect } from 'https://cdn.jsdelivr.net/npm/@open-wc/testing@latest/index.js'; //Temp Fix
 import { html, fixture, expect } from '@open-wc/testing';
-//import { html, fixture, expect } from '../../node_modules/@open-wc/testing';
-//import { expect as chaiExpect } from 'https://cdn.jsdelivr.net/npm/chai@4.3.4/chai.js';
 import '../components/ChipButton.ts'; 
 
 describe('ChipButton Component', () => {
   it('renders with a label', async () => {
-    const el = await fixture(
+    const el: any = await fixture(
       html`<chip-button label="Test Label"></chip-button>`
     );
     const chip = el.shadowRoot?.querySelector('.chip');

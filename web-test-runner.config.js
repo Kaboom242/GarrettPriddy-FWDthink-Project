@@ -5,7 +5,18 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default {
   browsers: [
-    playwrightLauncher({ product: 'firefox',  args: ['--incognito'],}),
+    playwrightLauncher({ 
+      product: 'chromium', 
+      args: ['--incognito'], 
+    }),
+    playwrightLauncher({ 
+      product: 'firefox', 
+      args: ['-private'], 
+    }),
+    playwrightLauncher({ 
+      product: 'webkit', 
+      args: ['--incognito'], 
+    }),
   ],
    plugins: [
     esbuildPlugin({
