@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { property } from 'lit/decorators.js';
 
 export default class ChipButton extends LitElement {
   // Define styles for the component
@@ -44,6 +45,9 @@ export default class ChipButton extends LitElement {
     }
   `;
 
+  @property({ type: String }) label: string = '';  // Default value to avoid undefined
+  @property({ type: Boolean }) active: boolean = false; 
+
   static get properties() {
     return {
       label: { type: String },
@@ -51,11 +55,11 @@ export default class ChipButton extends LitElement {
     };
   }
 
-  constructor() {
-    super();
-    this.label = ''; 
-    this.active = false; 
-  }
+  // constructor() {
+  //   super();
+  //   this.label = ''; 
+  //   this.active = false; 
+  // }
 
   // Boy, I sure do love the shadow DOM
   connectedCallback() {

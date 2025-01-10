@@ -126,24 +126,11 @@ export class ResourceCard extends LitElement {
     }
   `;
   
-  static get properties() {
-    return {
-      id: { type: String },
-      title: { type: String },
-      tags: { type: Array },
-      img: { type: String },
-      bookmarked: { type: Boolean },
-    };
-  }
-
-  constructor() {
-    super();
-    this.id = '';
-    this.title = '';
-    this.tags = [];
-    this.img = '';
-    this.bookmarked = false;
-  }
+ @property({ type: String }) id: string = '';
+  @property({ type: String }) title: string = '';
+  @property({ type: Array }) tags: string[] = [];
+  @property({ type: String }) img: string = '';
+  @property({ type: Boolean }) bookmarked: boolean = false;
 
 
   //import Bootcamp icons

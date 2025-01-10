@@ -87,8 +87,14 @@ const filteredResources = computed(() => {
 // Handle filter change Switch out to apply multiple filters to search.
 function handleFilterChange(event: CustomEvent) {
   const { label, active } = event.detail;
+  if(selectedFilter.value == label)
+  { 
+    selectedFilter.value  = 'All'
+  }
+  else {
+    selectedFilter.value = label;
+  }
   
-  selectedFilter.value = label;
 }
 
 function loadMore() {

@@ -8,11 +8,12 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 
 1. Clone the repository:
    ```bash
-   git clone [<repo-url>](https://github.com/Kaboom242/GarrettPriddy-FWDthink-Project.git)
+   git clone https://github.com/Kaboom242/GarrettPriddy-FWDthink-Project.git
    cd GarrettPriddy-FWDthink-Project
    ```
-2. npm install
-3. npm run dev
+2. ``` npm install ```
+3. ``` npm run dev ```
+4. Open browser to Localhost url it outputs likely: http://localhost:5173/
 
 ## Features
 
@@ -30,16 +31,13 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 - Typescript
 - Bootstrap Icons
 
-## Run Tests
-
-- npm test
-
 ## Assumptions & Notes
 
-- I tried to mimic the font 'Substance Bold' best I could by using Roboto.
-- I used Bootstrap Icons as they seemed closest I could find to the icon library you are using. 
-- Assuming Resources are Loaded via api, I made a json file that was "retrieved" from Api.
-- Assumed the Category Tags were static and doesn't have dynamic user generated ones.
-- Show more button should ask backend API to load more instead of just displaying more from the resource array.
-- I considered making the bookmark and context menu on the Resource cards into lit components, but under this assignment they didn't need more done that a style class 
-- When bookmarks are clicked this should also be ready to call the backend API, I considered saving the state using Pinia, but this would only be beneficial for  
+- **Font:** I tried to mimic the font 'Substance Bold' best I could by using Roboto.
+- **Icons:** I used Bootstrap Icons as they seemed closest I could find to the icon library you are using. I figured it wasn't necessary here to make identical icons using illustrator.
+- **Resource Data:** Assuming Resources are Loaded via api, I simulated this with a JSON file to mimic data retrieval from the backend.
+- **Category Tags:** I assumed that category tags are static and not user-generated. This simplified the implementation for this exercise.
+- **Show More Button:** The "Show More" button should trigger a backend API request to load additional resources instead of just displaying more items from the preloaded resource array.
+- **Componentization:** I considered breaking out the bookmark and context menu into separate Lit components. However, under the scope of this assignment, their current implementation as styled elements was sufficient.
+- **Bookmark Behavior:** Clicking the bookmark icon should trigger a backend API call. While I considered managing the state using Pinia, but this would only be useful under this challenges constraints, and not strictly necessary.
+- **No Data Fallback:** If the backend API is unavailable for resource Cards, a fallback mechanism (e.g., displaying cached data or an error message) should probably be added. 

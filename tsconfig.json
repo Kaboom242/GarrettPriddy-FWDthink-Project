@@ -2,16 +2,20 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "types": ["vite/client", "node", "mocha"],
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "jsx": "preserve",
+    "skipLibCheck": true,
+    "types": ["vite/client", "node", "mocha"],
     "outDir": "./dist", 
     "resolveJsonModule": true,
+    "baseUrl": "./src",        
+    "paths": {
+      "@/*": ["*"]             
+    },
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
    "exclude": ["node_modules", "dist"]
